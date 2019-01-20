@@ -1,43 +1,19 @@
 package com.company;
 
 public class Main {
-    // TASK 4 - http://euler.jakumo.org/problems/pg/1.html
-
-//    A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
-//    Find the largest palindrome made from the product of two 3-digit numbers.
-
-    static boolean b = false;
-    static int number = 999;
-    static int palindromes;
-    static int LargestPalindrome = 0;
 
     public static void main(String[] args) {
-        boolean bool = true;
-         while (bool) {
-            if(number == 100) {bool = false;}
-            else func1();
-        }
-        System.out.println("the biggest palindrome, obtained by multiplying two three-digit numbers " + LargestPalindrome);
-    }
+//         Task 5 - http://euler.jakumo.org/problems/pg/1.html
+//        2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+//                What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 
-    public static void func1() { // перемножуєм всі можливі комбінації трьохзначних чисел, і віддаємо кожне число на перевірку
-        for(int i = 100; i <= 999; i++) {
-            String product = "" + number * i;
-            func2(product);
+        int num = 100;
+       stop: while (true) {
+            num++;
+            if(num % 2 == 0 && num % 3 == 0 && num % 4 == 0 && num % 5 == 0 && num % 6 == 0 && num % 7 == 0 && num % 8 == 0 && num % 9 == 0 && num % 10 == 0 && num % 11 == 0
+                    && num % 12 == 0 && num % 13 == 0 && num % 14 == 0 && num % 15 == 0 && num % 16 == 0 && num % 17 == 0 && num % 18 == 0 && num % 19 == 0 && num % 20 == 0) {
+                System.out.println(num); break stop;
+            }
         }
-        number--;
-    }
-
-    public static void func2(String n) { //перевіряємо чи є число паліндромом
-        String num = "";
-        int length = n.length();
-        for (int i = length - 1; i >= 0; i--) {
-            num += n.charAt(i);
-        }
-        if (n.equals(num)) { b = true; palindromes = Integer.parseInt(n);
-                            if(LargestPalindrome <= palindromes) { LargestPalindrome = palindromes; } // тут взнається найбільший паліндром
-                             }
-        else b = false;
-    }
-    }
+    }}
 
