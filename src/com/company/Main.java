@@ -1,28 +1,52 @@
 package com.company;
 
-public class Main {
- //Task 6 - a source: http://euler.jakumo.org/problems/pg/1.html
+public class Main extends Line {
 
- //Task conditions:
+    //Task 8, Source - http://euler.jakumo.org/problems/pg/1.html
+    //conditions - Наибольшее произведение четырех последовательных цифр в нижеприведенном 1000-значном числе равно 9 × 9 × 8 × 9 = 5832.
+    //Найдите наибольшее произведение тринадцати последовательных цифр в данном числе.
 
-    //The sum of the squares of the first ten natural numbers is,
-    //12 + 22 + ... + 102 = 385
-    //The square of the sum of the first ten natural numbers is,
-    //(1 + 2 + ... + 10)2 = 552 = 3025
-    //Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.
-    //Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum
 
-    public static void main(String[] args) {
-        int sumSquares = 0, squaresSum = 0;
+    static int[] nums = new int[numbers.trim().length()];
+    static int n2 = 0;
+    static boolean b = true;
 
-        for(int i = 0; i <= 100; i++) {
-            sumSquares += i * i;
-            squaresSum += i;
+    public static void main(String[] args) { //тут всі числа записуються в массив
+        for (int i = 0; i <= numbers.trim().length() - 1; i++) {
+            nums[i] = Integer.parseInt(String.valueOf(numbers.trim().charAt(i)));
+        }
+        //
+        while (b) {
+            if (n2 != 1000) {
+                func2();
+            }
+            else {b = false; System.out.println( "Greatest product: " + greatestProduct);}
+        }
         }
 
-        System.out.println("difference between the sum of the squares of the first one hundred natural numbers and the square of the sum: \n"
-        + ((squaresSum * squaresSum) - sumSquares));
+    static int product = 1;
+    static int n3 = 0;
+    static int n1 = 0; // вказує з якого числа начнеться цикл
+    static int greatestProduct = 0;
 
-    }
-}
+    public static void func2() { // тут перемножується послідовність чисел
+
+            s: for (int i = n2; i < numbers.trim().length(); i++) {
+                product *= nums[i];
+                n1++;
+                if(n1 == 30) {break s;} //тут можна вказати скільки послідовних цифр  треба взяти
+
+                }
+
+        if (greatestProduct <= product) { //тут взнається добуток(произведения) самой найбільшой послідовності
+            greatestProduct = product;
+        }
+        product = 1;
+        n1 = 0;
+        n2 = ++n3;
+            }
+        }
+
+
+
 
